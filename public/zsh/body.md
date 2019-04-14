@@ -53,31 +53,31 @@ Tabによる補完も使えば数タイプで終わる!!!
 
 ## タブ連打で候補を切り替え
 
-![zsh-tab](/static/zsh-tab.gif)
+![zsh-tab](static/zsh-tab.gif)
 
 ---
 
 ## あいまい補完的なやつ
 
-![zsh-fuzzy](/static/zsh-fuzzy.gif)
+![zsh-fuzzy](static/zsh-fuzzy.gif)
 
 ---
 
 ## オプションの補完
 
-![zsh-option](/static/zsh-option.gif)
+![zsh-option](static/zsh-option.gif)
 
 ---
 
 ## サブコマンドの補完
 
-![zsh-sub](/static/zsh-sub.gif)
+![zsh-sub](static/zsh-sub.gif)
 
 ---
 
 ### プラグイン「zsh-syntax-highlighting」
 
-![zsh-highlight](/static/zsh-highlight.png)
+![zsh-highlight](static/zsh-highlight.png)
 
 ---
 
@@ -100,4 +100,4 @@ cd !$
 ### zshは本当に高機能です
 ### 気になる人は[この本](https://www.amazon.co.jp/zsh%E3%81%AE%E6%9C%AC-%E3%82%A8%E3%83%83%E3%82%BB%E3%83%B3%E3%82%B7%E3%83%A3%E3%83%AB%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF-%E5%BA%83%E7%80%AC-%E9%9B%84%E4%BA%8C/dp/4774138649)を読んでみるといいかも
 
-![zsh-book](/static/zsh-book.jpg)
+![zsh-book](static/zsh-book.jpg)
