@@ -1,10 +1,3 @@
-<!-- TODO: 削除 -->
-# 開発合宿
-
-侘美
-
----
-
 ### Firebaseを活用したWebアプリケーション
 
 ### **猫監視システム**
@@ -25,6 +18,14 @@
 [https://cat-watcher.firebaseapp.com/](https://cat-watcher.firebaseapp.com/)
 
 <img src="cat-watcher.png" width="1000px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
+
+>>>
+
+## ソースコード
+
+[reireias/cat-watcher](https://github.com/reireias/cat-watcher)
+
+[reireias/raspberrypi-ansible](https://github.com/reireias/raspberrypi-ansible)
 
 ---
 
