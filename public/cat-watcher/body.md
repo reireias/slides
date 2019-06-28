@@ -79,6 +79,52 @@
 
 <img src="cat-system.png" width="700px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
 
+>>>
+
+## 処理フロー(画像追加)
+
+1. `motion`コマンドが動体を検知し、画像を保存
+
+2. shellスクリプトが画像の追加を検知し、`gsutil`コマンドでCloud Storage for Firebaseにアップロード
+
+3. FunctionsがStorageへのファイル追加をトリガーに起動
+   - Cloud Vision APIで画像にラベル付け
+   - "Cat"が含まれていれば、DL URLを発行し、Firestoreにデータ登録
+   - 含まれていなければ、画像を削除する
+
+>>>
+
+4. Firestoreへのデータ追加をトリガーに、Functionsが起動
+   - MessagigでCatトピックを購読しているデバイスにpush通知送信
+
+5. クライアントはHostingされた静的サイトへアクセス
+
+6. AuthenticationによるGoogle認証連携
+
+7. クライアントからFirestoreに接続し、画像一覧のデータを取得
+
+8. データ中のDL URLでStorageから画像を取得
+
+>>>
+
+## 処理フロー(ユーザー登録)
+
+1. Google認証でログインしたイベントをトリガーにFunctionsが起動
+   - ユーザーのデータをFirestoreに追加する
+
+2. 通知ONボタンをユーザーがクリック
+   - ブラウザの通知の許可を利用し、許可された場合registerTokenが発行される
+   - 発行されたregisterTokenをFIrestore上のユーザーデータの属性にセット
+
+>>>
+
+3. Firestoreのユーザーデータの更新をトリガーにFunctionsが起動
+   - registerTokenが更新されていた場合は、それで`/topics/cat`をsubscribeする
+
+- registerTokenのみでも個々にメッセージを送ることができるが、最大で同時に100通が上限
+
+- Topicに対する配信なら上限は無制限
+
 ---
 
 ## Firebaseに対する考察
