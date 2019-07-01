@@ -1,7 +1,7 @@
-### Firebaseを活用したWebアプリケーション
+# ねこかん
+#### Firebaseを活用した猫監視システム
 
-### **猫監視システム**
-
+reireias
 
 ---
 
@@ -13,9 +13,18 @@
 
 ---
 
-## できたもの
+## できたもの(PWA版)
 
-[https://cat-watcher.firebaseapp.com/](https://cat-watcher.firebaseapp.com/)
+<figure style="display: inline-block;">
+  <img src="android_1.png" width="240px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
+</figure>
+<figure style="display: inline-block;">
+  <img src="android_2.png" width="240px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
+</figure>
+
+>>>
+
+## できたもの(Web版)
 
 <img src="cat-watcher.png" width="1000px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
 
