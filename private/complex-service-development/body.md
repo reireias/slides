@@ -114,6 +114,7 @@
 - #### 対策2: 代替OSSをローカルで動かす
   - AWS固有のものとかは代替となるOSSがあったりする
   - 例：S3 -> minio、Lambda/SQS/SNS等 -> LocalStack
+  - Mailはmailcatcherが最近は人気
 
 <img src="1_s3_minio.png" width="400px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
 
