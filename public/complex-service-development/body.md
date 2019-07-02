@@ -24,16 +24,14 @@
 ---
 
 ## 本日の話
-### **開発者のローカルの開発環境について**
+### **ローカルの開発環境について**
 
 ---
 
-### サービスのアーキテクチャはどんどん複雑に
-
-- サービスの成長
+### サービスが成長する過程でアーキテクチャはどんどん複雑になっていく
 
 - PaaS/SaaSの活用
-  - Elasticsearch、S3、Lambda
+  - 例：Elasticsearch、S3、Lambda
 
 - 歴史的経緯による複雑化
   - 技術的負債
@@ -44,23 +42,21 @@
 
 ### メドピアも年々複雑なアーキテクチャに...
 
----
-
 ここでやばいアーキテクチャを見せる
-
----
-
-### サービスが成長する上で<br>複雑化しないことなんてほとんどない
 
 ---
 
 #### **複雑化していく過程でローカルの開発環境も複雑に**
 
-- つぎはぎのREADME.md
+- README.mdがツギハギだらけに
 
 - 全体を知る人が少なくなる
 
 - **そして、次第にメンテされなくなっていく...**
+
+- **開発効率が下がっていく...**
+
+- という光景を幾度となく目にしてきた
 
 ---
 
@@ -70,8 +66,9 @@
 
 - CIにも共通する
 
+---
 
-## **これまで培ってきた<br>ノウハウや課題を共有します**
+## これまで培ってきた<br>ノウハウや課題を共有します
 
 ---
 
@@ -89,9 +86,9 @@
 
 ## 1. PaaS/SaaSをどうする問題
 
-- サービスのスピーディーな成長にはPaaS/SaaSの利用は不可欠
+- スピーディーな開発にはPaaS/SaaSの利用は不可欠
 
-- 例: S3(ストレージ), Lambda(Function), Elasticsearch
+- 例: S3、Lambda、Elasticsearch
 
 <img src="paas_saas.png" width="600px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
 
@@ -106,9 +103,8 @@
 
 - #### 対策1: 同じものをローカルで動かす
   - ローカルでも動作可能なOSSの場合はこれ
-  - 公式のコンテナイメージを利用するのが良さそう
-    - docker-composeによるインストール手順のコード化が容易なため
-  - 例：MySQL、Elasticsearch、Redis
+    - 例：MySQL、Elasticsearch、Redis
+  - 公式のコンテナイメージを利用するのが良い
 
 <img src="1_local_docker.png" width="800px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
 
@@ -133,8 +129,8 @@
 
 - #### 対策3: 直接PaaS/SaaSに接続
   - 本番と同一のサービスを利用できるという点では良い
-  - 開発者が多いと辛くなってくる
-  - コストもかかる
+  - **開発者が多いと辛くなってくる**
+  - **コストもかかる**
 
 　
 
@@ -157,7 +153,7 @@
 
 <img src="3_probrem.png" width="800px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
 
-- **課題：どうやって開発するか？**
+- **課題：どうやってコーディングするか？**
 
 </section>
 
@@ -165,7 +161,7 @@
 
 <section data-background-color="#1A237E">
 
-#### 対策1. Docker Volumeによる同期
+#### 対策1. Docker Volumeを使う
 
 - DockerのVolumeでローカルのコードをマウント
 - 好きなエディタで編集
@@ -186,6 +182,17 @@
 - コンテナ内でVS Code Serverが起動する仕組み
 - 既存のdocker-compose.ymlを流用して設定が可能
 - まだ試せていないが、かなり良さそう
+
+<img src="3_remote_development.png" width="600px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
+
+</section>
+
+---
+
+<section data-background-color="#1A237E">
+
+#### 対策2. VS Code Remote Development機能を使う
+
 - **デメリット：私はVimmerである**
 
 <img src="3_remote_development.png" width="600px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
@@ -201,7 +208,8 @@
 
 <img src="4_slow_docker.png" width="600px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
 
-- コンテナ内にマウントしたローカルのファイルへのアクセス全般が遅い
+- 理由：MacのDockerはネイティブでない(間にxhyve)
+- マウントなので、ファイルへのアクセス全般が遅い
 - デバッグやテストのパフォーマンスが低下
 
 </section>
@@ -234,7 +242,7 @@ https://docs.docker.com/docker-for-mac/osxfs-caching/
 
 #### 対策1. Docker Volumeのオプションを利用する
 
-使用例
+`docker-compose.yml`での設定例
 
 ```yaml
 version: '3'
@@ -254,11 +262,11 @@ services:
 
 #### 対策2. docker-syncによる同期の高速化
 
-- `EugenMayer/docker-sync` を利用する
+- [docker-sync](http://docker-sync.io/) を利用する
 
 - `delegated` オプションよりも約2倍程度速い
 
-- メドピアのとあるページでは
+- 例：メドピアのとあるページの表示速度
   - `delegated` オプション => 2.4秒
 
   - `docker-sync` => 1.0秒
@@ -269,7 +277,55 @@ services:
 
 <section data-background-color="#004D40">
 
-docker-syncの仕組み
+#### 対策2. docker-syncによる同期の高速化
+
+<div style="float: left; width: 50%;">
+
+before
+
+```yaml
+# docker-compose.yml
+services:
+  app:
+    volumes:
+      - /path/to/app:/app
+```
+
+</div>
+
+<div style="float: right; width: 50%;">
+
+after
+
+```yaml
+# docker-compose.yml
+services:
+  app:
+    volumes:
+      - sync-volume:/app
+
+volumes:
+  sync-volume:
+    external: true
+```
+
+```yaml
+# docker-sync.yml
+version: '2'
+syncs:
+  sync-volume:
+    src: '/path/to/app'
+```
+
+</div>
+
+</section>
+
+---
+
+<section data-background-color="#004D40">
+
+#### 参考：docker-syncの仕組み
 
 <img src="native_osx.png" width="800px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
 
@@ -285,14 +341,17 @@ https://docker-sync.readthedocs.io/en/latest/advanced/sync-strategies.html
 
 <section data-background-color="#004D40">
 
-#### 対策3. 開発マシンをLinuxにする
-- MacのDockerはネイティブでない(間にxhyve)
+## 対策3. 開発マシンをLinuxにする
 
 - プロダクトはAmazon LinuxやAlpineで動いている
 
-- Linuxが最も開発機に適しているのは自明である
+- プロダクトへのコンテナの導入も活発になってきている
 
-- ~~**まあ、現実的には情シスとか社内ルールによって無理だったり...**~~
+- ### Linuxが最も開発機に適しているのは自明である！
+
+
+
+**~~まあ、現実的には情シスとか社内ルールによって無理だったり...~~**
 
 </section>
 
@@ -300,14 +359,14 @@ https://docker-sync.readthedocs.io/en/latest/advanced/sync-strategies.html
 
 # まとめ
 
-- 開発環境は大事
+- 開発環境は大事、メンテしよう
 
 - Linuxで開発したい
 
-- Dockerを活用しよう
+- Dockerを上手く活用しよう
   - docker-composeによる構築の簡易化
 
-  - CI環境へ流用しやすい
+  - CI環境への流用/共通化が簡単
 
 - Linuxで開発したい
 
@@ -315,4 +374,6 @@ https://docker-sync.readthedocs.io/en/latest/advanced/sync-strategies.html
 
 ## ご静聴ありがとうございました
 
+<img src="cat_bengal.png" width="200px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
+<img src="cat_bengal.png" width="200px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
 <img src="cat_bengal.png" width="200px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
