@@ -420,26 +420,31 @@ CMD python /app/app.py # イメージをコンテナとして起動した際に�
 
 ### [ハンズオン] golang製web server
 
-準備
+下記リポジトリをcloneする
 
-- 任意の場所に下記構成で`infra-study-docker`と`go-hello`ディレクトリを作る
-```none
-infra-study-docker
-└── go-hello
-    ├── Dockerfile
-    └── main.go
+```bash
+git clone --depth=1 --branch=practice https://github.com/reireias/docker-golang-web.git
 ```
-- `go-hello`ディレクトリ内へ移動する
+
+構成はこんな感じ
+
+```bash
+docker-golang-web
+├── Dockerfile
+├── README.md
+└── main.go
+```
+
+**今回のハンズオンでは`Dockerfile`のみ変更する**
 
 ---
 
 ### [ハンズオン] golang製web server
 
+コードの確認
+
+
 golangでHello World!を返すweb serverのコード
-
-**コピペで問題ないです**
-
-`main.go`という名前で保存する
 
 ```golang
 package main

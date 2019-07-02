@@ -8,6 +8,9 @@
 
 ## 自己紹介
 - 侘美 怜 (たくみ さとし)
+  - Twitter: [reirei_As](https://twitter.com/reirei_As)
+  - GitHub: [reireias](https://github.com/reireias)
+  - Qiita: [reireias](https://qiita.com/reireias)
 
 - 2019年2月にメドピアへ入社
 
@@ -30,7 +33,7 @@
 - サービスの成長
 
 - PaaS/SaaSの活用
-  - S3, Lambda, Elasticsearch
+  - Elasticsearch、S3、Lambda
 
 - 歴史的経緯による複雑化
   - 技術的負債
@@ -43,17 +46,21 @@
 
 ---
 
+ここでやばいアーキテクチャを見せる
+
+---
+
 ### サービスが成長する上で<br>複雑化しないことなんてほとんどない
 
 ---
 
-複雑化していく過程でローカルの開発環境も複雑に
+#### **複雑化していく過程でローカルの開発環境も複雑に**
 
 - つぎはぎのREADME.md
 
 - 全体を知る人が少なくなる
 
-- **そして、次第にメンテされなくなっていく**
+- **そして、次第にメンテされなくなっていく...**
 
 ---
 
@@ -101,7 +108,7 @@
   - ローカルでも動作可能なOSSの場合はこれ
   - 公式のコンテナイメージを利用するのが良さそう
     - docker-composeによるインストール手順のコード化が容易なため
-  - 例：Elasticsearch、Redis
+  - 例：MySQL、Elasticsearch、Redis
 
 <img src="1_local_docker.png" width="800px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
 
@@ -285,7 +292,7 @@ https://docker-sync.readthedocs.io/en/latest/advanced/sync-strategies.html
 
 - Linuxが最も開発機に適しているのは自明である
 
-- **まあ、現実的には情シスとか社内ルールによって無理だったり...**
+- ~~**まあ、現実的には情シスとか社内ルールによって無理だったり...**~~
 
 </section>
 
@@ -294,6 +301,8 @@ https://docker-sync.readthedocs.io/en/latest/advanced/sync-strategies.html
 # まとめ
 
 - 開発環境は大事
+
+- Linuxで開発したい
 
 - Dockerを活用しよう
   - docker-composeによる構築の簡易化
