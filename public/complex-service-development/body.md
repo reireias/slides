@@ -228,7 +228,7 @@
   - ホストからコンテナへの更新の遅延を許可する
   - コンテナ内のreadの高速化
 - **delegated**
-  - コンテナからホストのへの更新の遅延を許可する
+  - コンテナからホストへの更新の遅延を許可する
   - コンテナ内のread/writeの高速化
   - 例：`yarn install` が 486s -> 49s まで高速化
 
@@ -372,7 +372,7 @@ https://docker-sync.readthedocs.io/en/latest/advanced/sync-strategies.html
 
 ---
 
-## ご静聴ありがとうございました
+## ご清聴ありがとうございました
 
 <img src="cat_bengal.png" width="200px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
 <img src="cat_bengal.png" width="200px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
