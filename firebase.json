@@ -7,6 +7,7 @@
       "**/node_modules/**",
       "**/test/**",
       "**/README.md",
+      "**/package.json",
       "**/yarn.lock",
       "**/Gruntfile.js",
       "**/LICENSE",

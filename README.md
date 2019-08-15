@@ -2,7 +2,14 @@
 
 ## add slide
 ```sh
+name="new_slide_name"
+cp -r template public/${name}
+sed -i -e "s/@name@/${name}/g" public/${name}/*
+```
+
+## running on local
+```sh
 cd public
-git clone git@github.com:reireias/reveal.js name
-rm -rf name/.git
+yarn install
+yarn dev
 ```
