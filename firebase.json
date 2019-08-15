@@ -5,13 +5,8 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**",
-      "**/test/**",
-      "**/README.md",
       "**/package.json",
-      "**/yarn.lock",
-      "**/Gruntfile.js",
-      "**/LICENSE",
-      "**/bower.json"
+      "**/yarn.lock"
     ]
   }
 }
