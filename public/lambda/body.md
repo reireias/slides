@@ -142,7 +142,7 @@ t3.small(2GiB) $0.0272/h
 
 - Lambdaから使いたいならDynamoDBを使いましょう
 
-- どうしてもRDSにデータ入れたいなら、Lambda  → SQL → バッチ でやりましょう
+- どうしてもRDSにデータ入れたいなら、Lambda  → SQS → バッチ でやりましょう
 
 ---
 
@@ -388,6 +388,16 @@ t3.small(2GiB) $0.0272/h
 <a href="https://github.com/reireias/lambda-examples"><img src="https://github-link-card.s3.ap-northeast-1.amazonaws.com/reireias/lambda-examples.png" width="460px"></a>
 
 - Ruby, Node.js, Pythonの回答例を記載
+
+---
+
+## おまけ
+
+実際のサービス開発ではコード管理やデプロイはどうするの？
+
+- コードはzip化してS3に設置しデプロイが基本
+
+- terraformでもできるが、Serverless Frameworkを使うのが主流
 
 ---
 
