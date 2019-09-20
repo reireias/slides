@@ -2,9 +2,22 @@
 
 #### [GitHub Actions](https://github.com/features/actions) vs [Travis CI](https://travis-ci.org/) vs [CircleCI](https://circleci.com/)
 
+<img src="static/10_title.png" width="800px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
+
 ---
 
 ## 自己紹介
+
+<img src="static/05.png" width="200px" style="background-color: rgba(255, 255, 255, 0); border: none; box-shadow: none; margin: 20px;" />
+<br>
+
+- たくみ さとし
+
+- MENSAエンジニア
+
+- サーバーサイドエンジニア 兼 SRE？
+
+- 最近はモンスターをハンティングしてると、飼い猫にハンティングされる日々を過ごしています
 
 ---
 
@@ -50,19 +63,19 @@
 
 ---
 
-### Q. プライベートでコード書いてますか？(直近1年)
+![06](static/06.png)
 
 ---
 
-### Q. プライベート開発時、テストは書いてますか？
+![07](static/07.png)
 
 ---
 
-### Q. プライベート開発時、CIは利用してますか？
+![08](static/08.png)
 
 ---
 
-### Q. プライベート開発時、最も利用するCIツールは？
+![09](static/09.png)
 
 ---
 
@@ -79,13 +92,13 @@
 ### CIツールに求めるもの
 - 無料、もしくは(かぎりなく)安いこと
 
-- 簡単に設定ファイルが記述できる
+- **簡単に**設定ファイルが記述できる
 
-- 簡単にSlack通知が設定できる
+- **簡単に**Slack通知が設定できる
 
-- 簡単にGitHub Pagesへのデプロイができる
+- **簡単に**GitHub Pagesへのデプロイができる
 
-- 簡単に秘密情報を設定できる
+- **簡単に**秘密情報を設定できる
 
 - (できれば)任意のDockerイメージを使える
 
@@ -112,7 +125,7 @@
 <a href="https://github.com/reireias/compare-ci-tools"><img src="https://github-link-card.s3.ap-northeast-1.amazonaws.com/reireias/compare-ci-tools.png" width="460px"></a>
 
 - シンプルなnodeのプロジェクト
-- CIで実行するのは`yarn test`と`yarn lint`
+- CIで実行するのは `yarn test` と `yarn lint`
 - 結果をSlackに通知する
 
 ---
@@ -234,13 +247,13 @@ jobs:
 ---
 
 ### 簡単に秘密情報を設定できる
-- CircleCIとGitHub ActionsはWeb UIから環境変数を登録
+- CircleCIとGitHub Actionsは**Web UIから**環境変数を登録
 
 - API経由での指定は調べたけどできなさそう
 
-- TravisCIは[travis-ci/travis.rb](https://github.com/travis-ci/travis.rb)というCLIツールで暗号化して設定ファイルに書き込む仕組み
+- TravisCIは[travis-ci/travis.rb](https://github.com/travis-ci/travis.rb)というCLIツールで暗号化して**設定ファイルに**書き込む仕組み
 
-- 若干だがTravis CIが優位
+- 若干だがTravis CIが優位(個人の感覚)
 
 ---
 
@@ -279,7 +292,9 @@ deploy:
 
 ### まとめ
 
-- しばらくは様子見でTravis CIの使用を継続！
+- しばらくは~~楽したいので~~様子見で**Travis CI**の使用を継続！
+
+- GitHub Actionsの成長が楽しみ！
 
 ---
 
